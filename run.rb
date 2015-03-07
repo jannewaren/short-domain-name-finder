@@ -1,18 +1,28 @@
 require_relative 'domain'
+require_relative 'name'
 
 TLD = 'fi'
+CHARACTERS = %w(a i t n e s l o k u m v r j h y p d g b f c w q)
 
-names = ['jkw','jidfijdffd','jannewaren','kehasahko','hekasaaaahko']
+names = []
 domains = []
 free = []
 taken = []
 
-names.each do |n|
-  domains << Domain.new(n.to_s, TLD)
+CHARACTERS.repeated_combination(3).to_a.each do |c|
+  names << Name.new(c.join)
+end
+
+CHARACTERS.repeated_combination(4).to_a.each do |c|
+  names << Name.new(c.join)
+end
+
+names.sort { |a,b| b.points <=> a.points }.each do |n|
+  domains << Domain.new(n.text.to_s, TLD)
 end
 
 domains.each do |d|
-  if d.available?
+  if free.length < 5 and d.available?
     free << d
   else
     taken << d

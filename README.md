@@ -13,18 +13,20 @@ command line Ruby (not Rails) app.
 
 ## Requirements
  * ruby (tested on 2.2.0)
- * curl
+ * whois
 
 ## Features
  * Perform a whois check on all domain names which are 2-4 characters long
    * But do not overload whois services (limit results to 20 or something)
  * Support for other TLDs than .fi
- * Ordering the results, give a result extra points for
-   * Being short (duh!)
-   * Includes common characters (https://www.cs.tut.fi/~jkorpela/kielikello/kirjtil.html)
+ * Ordering the results, give a domain name extra points for
+   * Being short (duh!).
+   * Includes common characters (https://www.cs.tut.fi/~jkorpela/kielikello/kirjtil.html).
    * Includes two of the same characters
+   * Includes f or i (for similiarity with .fi). One point for each.
 
 ## Missing features
 * Support for ä, ö, å and whatever special characters are allowed
 * Specify character(s) that have to be included
 * Silent mode and verbose mode
+* Tests?
