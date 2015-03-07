@@ -15,11 +15,6 @@ class Domain
     puts 'DEGUB - @points: ' + @points.to_s
   end
 
-  # currently not needed
-  #def resolves?
-  #  system "curl -I --silent #{self.name}.#{self.tld} > /dev/null"
-  #end
-
   def to_fqdn
     return @name+'.'+@tld
   end
