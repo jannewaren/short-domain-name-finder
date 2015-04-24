@@ -5,19 +5,8 @@ class Name
   def initialize(text)
     @text = text
     @points = 0.0
-    check_for_fi
     check_length
     check_for_same_chars
-    puts 'DEGUB - Initialising a new Name object..'
-    puts 'DEBUG - @text: ' + @text.to_s
-    puts 'DEBUG - @points: ' + @points.to_s
-  end
-
-  def check_for_fi
-    counter = 0.0
-    counter = counter + 0.1 if @text.include?('f')
-    counter = counter + 0.1 if @text.include?('i')
-    @points = @points + counter
   end
 
   def check_length
